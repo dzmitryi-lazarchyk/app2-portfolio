@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas
 
 st.set_page_config(layout="wide")
 
@@ -14,5 +15,23 @@ with col2:
     that I provided below."""
     st.info(content)
 
-st.write("""Please, don't hesitate to contact me if you have any qestions for me.
+df = pandas.read_csv("data.csv", sep=";")
+print(len(df))
+print(len(df)//2)
+col3, col4 = st.columns(2)
+
+with col3:
+    for index, row in df[:len(df)//2].iterrows():
+        st.header(row['title'])
+        st.image(f"images/{row['image']}", width=300)
+        st.write(row['description'])
+        st.write("[Source code](row['url'])")
+with col4:
+    for index, row in df[len(df)//2:].iterrows():
+        st.header(row['title'])
+        st.image(f"images/{row['image']}", width=300)
+        st.write(row['description'])
+        st.write("[Source code](row['url'])")
+
+st.write("""Please, don't hesitate to contact me if you have any questions for me.
 Or if you simply want to chat about Phython.""")
