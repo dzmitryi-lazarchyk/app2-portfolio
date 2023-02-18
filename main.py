@@ -13,3 +13,6 @@ with col2:
     Hello! I am Dzmitryi! I am Phython developer. Check out my study projects,
     that I provided below."""
     st.info(content)
+
+st.write("""Please, don't hesitate to contact me if you have any qestions for me.
+Or if you simply want to chat about Phython.""")
